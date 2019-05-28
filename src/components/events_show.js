@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 
-import { postEvent } from '../actions';
+import { getEvent, deleteEvent, putEvent } from '../actions';
 
-class EventsNew extends Component{
+class EventsShow extends Component{
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
@@ -22,7 +22,7 @@ class EventsNew extends Component{
   }
   
   async onSubmit(values) {
-    await this.props.postEvent(values)
+    // await this.props.postEvent(values)
     this.props.history.push('/')
   }
 
@@ -55,8 +55,8 @@ const validate = values => {
   return errors
 }
 
-const mapDispatchToProps = ({ postEvent })
+// const mapDispatchToProps = ({ postEvent })
 
-export default connect(null, mapDispatchToProps)(
-  reduxForm( {validate, form: 'eventNewForm' })(EventsNew)
+export default connect(null, null)(
+  reduxForm( {validate, form: 'eventShowForm' })(EventsShow)
 )
