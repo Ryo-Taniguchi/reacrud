@@ -8,7 +8,6 @@ import { readEvents } from '../actions'
 class EventsIndex extends Component{
   // componentがマウントされた時に実行
   componentDidMount() {
-    console.log('hi')
     this.props.readEvents()
   }
 
